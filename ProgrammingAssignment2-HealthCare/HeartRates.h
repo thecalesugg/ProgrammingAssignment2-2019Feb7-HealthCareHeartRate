@@ -82,16 +82,55 @@ public:
 
 	//age
 
-		int getAge() const 
+		int getAge() 
 		{
-
+			age = 2019 - dobYear;
+			return age;
 		}
+
+	//Heart Rate
+
+		//max
+		int getMaximumHeartRate()
+		{
+			maxHeartRate = 220 - getAge();
+			return maxHeartRate;
+		}
+
+		//target rate
+
+		int getTargetHeartRateUpper()
+		{
+			targetHeartRateUpper = getMaximumHeartRate() * .85;
+			return targetHeartRateUpper;
+		}
+
+		int getTargetHeartRateLower()
+		{
+			targetHeartRateLower = getMaximumHeartRate() * .50;
+			return targetHeartRateLower;
+		}
+	//Display Message
+		void displayInfo()
+		{
+			cout << "Thank you for your patience!\nFull Name: " << getNameFirst() << " " << getNameLast() << endl;
+			cout << "Date of Birth: " << getBirthMonth() << "-" << getBirthDay() << "-" << getBirthYear() << endl;
+			cout << "Current Age: " << getAge() << " years old." << endl;
+			cout << "Your maximum heart rate is: " << getMaximumHeartRate() << " bpm\nYour target heart rate is " << getTargetHeartRateLower() << " to " << getTargetHeartRateUpper() << " bpm" << endl;
+		} 
 
 
 private:
+
 	string nameFirst;
 	string nameLast;
 	int dobMonth;
 	int dobDay;
 	int dobYear;
+
+	int age;
+	int maxHeartRate;
+	int targetHeartRateUpper;
+	int targetHeartRateLower;
+
 };
